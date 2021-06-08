@@ -77,6 +77,7 @@
     }
     getElements(){
       const thisProduct = this;
+      thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
     
       thisProduct.accordionTrigger = thisProduct.element.querySelector(select.menuProduct.clickable);
       thisProduct.form = thisProduct.element.querySelector(select.menuProduct.form);
@@ -147,18 +148,32 @@
           console.log(optionId, option);
           if(option.default) {
           //check if the option id is inside formData, the key of option id is param id
-          if(!formData[paramId].includes(optionId)) {
-            price -= option.price;
+            if(!formData[paramId].includes(optionId)) {
+              price -= option.price;
+            }
           }
-        }
           else {
             if(formData[paramId].includes(optionId)) {
               price += option.price;
             }
           }
+          const picture = thisProduct.imageWrapper.querySelector(`.${paramId}-${optionId}`);
+          //check if option is ticked
+          if(formData[paramId].includes(optionId)) {
+          //find a picture in the div
+            //if the picture exist
+            if(picture) {
+              //add class active
+              picture.classList.add(classNames.menuProduct.imageVisible);
+            }
+          }
+          else {
+            if(picture) {
+              picture.classList.remove(classNames.menuProduct.imageVisible);
+            }
+          }
         }
       }
-    
       // update calculated price in the HTML
       thisProduct.priceElem.innerHTML = price;
     }
