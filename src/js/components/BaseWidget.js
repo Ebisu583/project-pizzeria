@@ -21,7 +21,7 @@ class BaseWidget{
       thisWidget.correctValue = newValue;
     }
     thisWidget.renderValue();
-    console.log('AmountWidget after setValue:', thisWidget);
+    // console.log('AmountWidget after setValue:', thisWidget);
     thisWidget.announce();
   }
   parseValue(value){

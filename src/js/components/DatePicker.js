@@ -5,21 +5,21 @@ import {select, settings} from '../settings.js';
 class DatePicker extends BaseWidget{
   constructor(wrapper){
     super(wrapper, utils.dateToStr(new Date()));
-    const thisWidget = this;
+    const thisDatePicker = this;
 
-    thisWidget.dom.input = thisWidget.dom.wrapper.querySelector(select.widgets.datePicker.input);
-    thisWidget.initPlugin();
+    thisDatePicker.dom.input = thisDatePicker.dom.wrapper.querySelector(select.widgets.datePicker.input);
+    thisDatePicker.initPlugin();
   }
   initPlugin(){
-    const thisWidget = this;
+    const thisDatePicker = this;
 
-    thisWidget.minDate = new Date();
-    thisWidget.maxDate = utils.addDays(thisWidget.minDate, settings.datePicker.maxDaysInFuture);
+    thisDatePicker.minDate = new Date();
+    thisDatePicker.maxDate = utils.addDays(thisDatePicker.minDate, settings.datePicker.maxDaysInFuture);
     // eslint-disable-next-line no-undef
-    flatpickr(thisWidget.dom.input, {
-      defaultDate: thisWidget.minDate,
-      minDate: thisWidget.minDate,
-      maxDate: thisWidget.maxDate,
+    flatpickr(thisDatePicker.dom.input, {
+      defaultDate: thisDatePicker.minDate,
+      minDate: thisDatePicker.minDate,
+      maxDate: thisDatePicker.maxDate,
       locale: {
         firstDayOfWeek: 1
       },
@@ -29,7 +29,7 @@ class DatePicker extends BaseWidget{
         }
       ],
       onChange: function(selectedDates, dateStr) {
-        thisWidget.value = dateStr;
+        thisDatePicker.value = dateStr;
       },
     });
   }

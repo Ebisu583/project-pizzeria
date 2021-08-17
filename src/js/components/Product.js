@@ -13,7 +13,7 @@ class Product {
     thisProduct.initOrderForm();
     thisProduct.initAmountWidget();
     thisProduct.processOrder();
-    console.log('new Product:', thisProduct);
+    // console.log('new Product:', thisProduct);
   }
   renderInMenu() {
     const thisProduct = this;
@@ -38,7 +38,7 @@ class Product {
     thisProduct.form = thisProduct.element.querySelector(
       select.menuProduct.form
     );
-    // console.log(thisProduct.form, select.menuProduct.form, thisProduct.element);
+    // // console.log(thisProduct.form, select.menuProduct.form, thisProduct.element);
     thisProduct.formInputs = thisProduct.form.querySelectorAll(
       select.all.formInputs
     );
@@ -64,7 +64,7 @@ class Product {
 
     /* find the clickable trigger (the element that should react to clicking) */
     // const clickableTrigger = thisProduct.element.querySelector(select.menuProduct.clickable);
-    // console.log(thisProduct.element)
+    // // console.log(thisProduct.element)
 
     /* START: add event listener to clickable trigger on event click */
     thisProduct.accordionTrigger.addEventListener('click', function (event) {
@@ -84,7 +84,7 @@ class Product {
   }
   initOrderForm() {
     const thisProduct = this;
-    console.log('initOrderForm');
+    // console.log('initOrderForm');
     thisProduct.form.addEventListener('submit', function (event) {
       event.preventDefault();
       thisProduct.processOrder();
@@ -107,7 +107,7 @@ class Product {
 
     // covert form to object structure e.g. { sauce: ['tomato'], toppings: ['olives', 'redPeppers']}
     const formData = utils.serializeFormToObject(thisProduct.form);
-    console.log('formData', formData);
+    // console.log('formData', formData);
 
     // set price to default price
     let price = thisProduct.data.price;
@@ -116,13 +116,13 @@ class Product {
     for (let paramId in thisProduct.data.params) {
       // determine param value, e.g. paramId = 'toppings', param = { label: 'Toppings', type: 'checkboxes'... }
       const param = thisProduct.data.params[paramId];
-      console.log(paramId, param);
+      // console.log(paramId, param);
 
       // for every option in this category
       for (let optionId in param.options) {
         // determine option value, e.g. optionId = 'olives', option = { label: 'Olives', price: 2, default: true }
         const option = param.options[optionId];
-        console.log(optionId, option);
+        // console.log(optionId, option);
         if (option.default) {
           //check if the option id is inside formData, the key of option id is param id
           if (!formData[paramId].includes(optionId)) {
@@ -186,19 +186,19 @@ class Product {
 
     // covert form to object structure e.g. { sauce: ['tomato'], toppings: ['olives', 'redPeppers']}
     const formData = utils.serializeFormToObject(thisProduct.form);
-    console.log('formData', formData);
+    // console.log('formData', formData);
 
     // for every category (param)...
     for (let paramId in thisProduct.data.params) {
       // determine param value, e.g. paramId = 'toppings', param = { label: 'Toppings', type: 'checkboxes'... }
       const param = thisProduct.data.params[paramId];
-      console.log(paramId, param);
+      // console.log(paramId, param);
 
       // for every option in this category
       for (let optionId in param.options) {
         // determine option value, e.g. optionId = 'olives', option = { label: 'Olives', price: 2, default: true }
         const option = param.options[optionId];
-        console.log(optionId, option);
+        // console.log(optionId, option);
 
         //check if the option id is inside formData, the key of option id is param id
         if (formData[paramId].includes(optionId)) {

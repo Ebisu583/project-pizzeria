@@ -7,7 +7,7 @@ class Cart {
     thisCart.products = [];
     thisCart.getElements(element);
     thisCart.initActions();
-    console.log('new Cart', thisCart);
+    // console.log('new Cart', thisCart);
   }
   getElements(element) {
     const thisCart = this;
@@ -55,7 +55,7 @@ class Cart {
   }
   add(menuProduct) {
     //const thisCart = this;
-    console.log('adding product', menuProduct);
+    // console.log('adding product', menuProduct);
     const thisCart = this;
     // generate HTML based on template
     const generatedHTML = templates.cartProduct(menuProduct);
@@ -66,7 +66,7 @@ class Cart {
     // add element to menu
     productListContainer.appendChild(generatedDOM);
     thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
-    console.log('thisCart.products', thisCart.products);
+    // console.log('thisCart.products', thisCart.products);
     thisCart.update();
   }
   update() {
@@ -76,7 +76,7 @@ class Cart {
     let subTotalPrice = 0;
     for (let product of thisCart.products) {
       totalNumber += product.amount;
-      console.log(product);
+      // console.log(product);
       subTotalPrice += product.price;
     }
     if (totalNumber === 0) {
@@ -99,7 +99,7 @@ class Cart {
     }, 100);
   }
   remove(cartProductToRemove) {
-    console.log(cartProductToRemove);
+    // console.log(cartProductToRemove);
     const thisCart = this;
     cartProductToRemove.dom.wrapper.remove();
     thisCart.products.forEach((cartProduct, index) => {

@@ -1,4 +1,4 @@
-import { settings, select, classNames, templates } from './settings.js';
+import { settings, select, classNames } from './settings.js';
 import Product from './components/Product.js';
 import Cart from './components/Cart.js';
 import Booking from './components/Booking.js';
@@ -45,7 +45,7 @@ const app = {
   },
   initMenu: function () {
     const thisApp = this;
-    console.log('thisApp.data', thisApp.data);
+    // console.log('thisApp.data', thisApp.data);
     for (let productData in thisApp.data.products) {
       new Product(
         thisApp.data.products[productData].id,
@@ -71,14 +71,14 @@ const app = {
         return rawResponse.json();
       })
       .then(function (parsedResponse) {
-        console.log('parsedResponse', parsedResponse);
+        // console.log('parsedResponse', parsedResponse);
         /* save parsedResponse as thisApp.data.products */
         thisApp.data.products = parsedResponse;
         /* execute initMenu method */
         thisApp.initMenu();
       });
 
-    console.log('thisApp.data', JSON.stringify(thisApp.data));
+    // console.log('thisApp.data', JSON.stringify(thisApp.data));
   },
   initBooking: function () {
     const thisApp = this;
@@ -88,14 +88,14 @@ const app = {
   },
   init: function () {
     const thisApp = this;
-    console.log('*** App starting ***');
-    console.log('thisApp:', thisApp);
-    console.log('classNames:', classNames);
-    console.log('settings:', settings);
-    console.log('templates:', templates);
+    // console.log('*** App starting ***');
+    // console.log('thisApp:', thisApp);
+    // console.log('classNames:', classNames);
+    // console.log('settings:', settings);
+    // console.log('templates:', templates);
     thisApp.initPages();
     thisApp.initData();
-    console.log('thisApp:', thisApp);
+    // console.log('thisApp:', thisApp);
 
     thisApp.initCart();
     thisApp.initBooking();
