@@ -1,0 +1,16 @@
+a.button-dark {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  padding: 32px;
+  background-size: cover;
+  background-position: 50% 40%;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.button-dark h2{
+  margin: 0;
+  font-family: $font-header;
+  font-weight: $font-normal;
+}
